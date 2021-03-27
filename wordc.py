@@ -18,11 +18,13 @@ d = path.dirname(__file__) if "__file__" in locals() else os.getcwd()
 #get user's max words
 
 #dictionary? 
+topics = {'politics': 'politicsArticles.txt', 'placeholder1':'placeholder1.txt', 'placeholder2':'placeholder2.txt', 'placeholder3':'placeholder3.txt'}
+stencils = {'wolf': 'wolfstencil.jpg', 'pig': 'pigstencil.jpg', 'placeholder1':'placeholder1.jpg'}
 
-user_topic = 'politicsArticles.txt'
-user_mask = 'wolfstencil.jpg'
+user_topic = 'politicsArticles.txt' #use dictionary to do this instead
+user_mask = 'wolfstencil.jpg' #use dictionary to do this instead
 user_max = 80
-color_choice = None #or grey_color_func
+color_choice = None #or grey_color_func if they choose b/w
 text = open(path.join(d, user_topic)).read()
 
 cloud_mask = np.array(Image.open(path.join(d, user_mask)))
