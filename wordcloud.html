@@ -7,7 +7,17 @@
     <link rel="stylesheet" href="wordcloud.css">
 </head>
 <body>
-    <button onclick="darkmode()">Toggle Dark Mode</button>
+    <header class="center">
+        <h1> 
+            <b>
+                News Cloud
+            </b>
+        </h1>
+        <p>
+            Welcome to Cloud9
+        </p>
+    </header>
+    <!-- <button onclick="darkmode()">Toggle Dark Mode</button> -->
     <div class="settings">
         <div>
             <label for="topics">Choose a topic:</label>
@@ -17,6 +27,7 @@
                 <option value="ishika">ishika</option>
             </select>
         </div>
+        <br/>
         <div>
             <label for="shapes">Choose a shape:</label>
             <select name="shapes" id="shapes" onchange="updateWordCloud()">
@@ -29,14 +40,17 @@
                 <option value="Bruins">Bruins</option>
             </select>
         </div>
+        <br/>
         <div>
             <label for="num-words">Word Limit (10-100):</label>
             <input type="number" id="num-words" min="10" max="100" onchange="updateWordCloud()">
         </div>
+        <br/>
         <div>
             <label for="color">Color</label>
             <input type="checkbox" id="color" value="color" onchange="updateWordCloud()">
         </div>
+        <button onclick="updateWordCloud()">Generate!</button>
     </div>
     <div class="wordcloud">
         <img id="wordcloudimg" src="placeholder.jpg" alt="Word Cloud Image">
