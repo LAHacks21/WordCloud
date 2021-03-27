@@ -19,7 +19,7 @@ d = path.dirname(__file__) if "__file__" in locals() else os.getcwd()
 
 #dictionary? 
 topics = {'politics': 'politicsArticles.txt', 'placeholder1':'placeholder1.txt', 'placeholder2':'placeholder2.txt', 'placeholder3':'placeholder3.txt'}
-stencils = {'wolf': 'wolfstencil.jpg', 'pig': 'pigstencil.jpg', 'placeholder1':'placeholder1.jpg'}
+stencils = {'none': None, wolf': 'wolfstencil.jpg', 'pig': 'pigstencil.jpg', 'placeholder1':'placeholder1.jpg'}
 
 user_topic = 'politicsArticles.txt' #use dictionary to do this instead
 user_mask = 'wolfstencil.jpg' #use dictionary to do this instead
