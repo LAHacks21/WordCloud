@@ -9,30 +9,38 @@
 <body>
     <button onclick="darkmode()">Toggle Dark Mode</button>
     <div class="settings">
-        <label for="topics">Choose a topic:</label>
-        <select name="topics" id="topics" onchange="updateWordCloud()">
-            <option value=""></option>
-            <option value="ishika">ishika</option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-            <option value=""></option>
-        </select>
-        <label for="shapes">Choose a shape:</label>
-        <select name="shapes" id="shapes" onchange="updateWordCloud()">
-            <option value="circle">Circle</option>
-            <option value="square">Square</option>
-            <option value="twitter">Twitter</option>
-            <option value="LA Hacks">LA Hacks</option>
-            <option value="Golden Bear">Golden Bear</option>
-            <option value="Anteater">Anteater</option>
-            <option value="Bruins">Bruins</option>
-        </select>
-        <label for="num-words">Word Limit (10-100):</label>
-        <input type="number" id="num-words" min="10" max="100" onchange="updateWordCloud()">
-        <label for="color">Color</label>
-        <input type="checkbox" id="color" value="color" onchange="updateWordCloud()">
+        <div>
+            <label for="topics">Choose a topic:</label>
+            <select name="topics" id="topics" onchange="updateWordCloud()">
+                <option value=""></option>
+                <option value="ishika">ishika</option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+                <option value=""></option>
+            </select>
+        </div>
+        <div>
+            <label for="shapes">Choose a shape:</label>
+            <select name="shapes" id="shapes" onchange="updateWordCloud()">
+                <option value="circle">Circle</option>
+                <option value="square">Square</option>
+                <option value="twitter">Twitter</option>
+                <option value="LA Hacks">LA Hacks</option>
+                <option value="Golden Bear">Golden Bear</option>
+                <option value="Anteater">Anteater</option>
+                <option value="Bruins">Bruins</option>
+            </select>
+        </div>
+        <div>
+            <label for="num-words">Word Limit (10-100):</label>
+            <input type="number" id="num-words" min="10" max="100" onchange="updateWordCloud()">
+        </div>
+        <div>
+            <label for="color">Color</label>
+            <input type="checkbox" id="color" value="color" onchange="updateWordCloud()">
+        </div>
     </div>
     <div class="wordcloud">
         <img id="wordcloudimg" src="placeholder.jpg" alt="Word Cloud Image">

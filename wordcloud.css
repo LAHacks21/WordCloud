@@ -32,3 +32,8 @@ h1,
 p {
   color: var(--text-color);
 } 
+
+.settings {
+    /* margin: 0 auto; */
+    text-align:center;
+}
