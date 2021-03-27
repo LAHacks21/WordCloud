@@ -1,5 +1,4 @@
 
-
 import os
 from os import path
 from wordcloud import WordCloud
@@ -20,7 +19,7 @@ d = path.dirname(__file__) if "__file__" in locals() else os.getcwd()
 
 #dictionary? 
 
-user_topic = 'strongheart.txt'
+user_topic = 'politicsArticles.txt'
 user_mask = 'wolfstencil.jpg'
 user_max = 80
 color_choice = None #or grey_color_func
