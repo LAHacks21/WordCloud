@@ -2,22 +2,12 @@
 <html lang="en-US">
 <head>
     <title>Word Cloud</title>
-    <script>
-        function getWordCloudURL(topic) {
-            console.log(topic);
-            var url = topic+".jpg";
-            console.log(url);
-            return url;
-        }
-        function updateWordCloud() {
-            var topic = document.getElementById("topics").value;
-            var img = document.getElementById('wordcloudimg');
-            img.src = getWordCloudURL(topic);
-            img.alt = "Word Cloud of " + topic;
-        }
-    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="wordcloud.js"></script>
+    <link rel="stylesheet" href="wordcloud.css">
 </head>
 <body>
+    <button onclick="darkmode()">Toggle Dark Mode</button>
     <div class="settings">
         <label for="topics">Choose a topic:</label>
         <select name="topics" id="topics" onchange="updateWordCloud()">
@@ -29,6 +19,20 @@
             <option value=""></option>
             <option value=""></option>
         </select>
+        <label for="shapes">Choose a shape:</label>
+        <select name="shapes" id="shapes" onchange="updateWordCloud()">
+            <option value="circle">Circle</option>
+            <option value="square">Square</option>
+            <option value="twitter">Twitter</option>
+            <option value="LA Hacks">LA Hacks</option>
+            <option value="Golden Bear">Golden Bear</option>
+            <option value="Anteater">Anteater</option>
+            <option value="Bruins">Bruins</option>
+        </select>
+        <label for="num-words">Word Limit (10-100):</label>
+        <input type="number" id="num-words" min="10" max="100" onchange="updateWordCloud()">
+        <label for="color">Color</label>
+        <input type="checkbox" id="color" value="color" onchange="updateWordCloud()">
     </div>
     <div class="wordcloud">
         <img id="wordcloudimg" src="placeholder.jpg" alt="Word Cloud Image">
