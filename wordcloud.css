@@ -38,8 +38,9 @@ p {
     text-align:center;
 }
 .wordcloud {
-    margin: 0 auto;
-    text-align:center;
+    max-width: 100%;
+    height: auto;
+    width:auto\9;
 }
 .center {
     text-align:center;
