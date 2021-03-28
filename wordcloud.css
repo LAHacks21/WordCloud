@@ -32,8 +32,8 @@ h1,
 p {
   color: var(--text-color);
 } 
-.padding-32 {
-    padding-top:32px;
+.padding-header {
+    padding-top:16px;
     padding-bottom:32px;
 }
 
