@@ -32,10 +32,17 @@ h1,
 p {
   color: var(--text-color);
 } 
+.padding-32 {
+    padding-top:32px;
+    padding-bottom:32px;
+}
 
 .settings {
     /* margin: 0 auto; */
     text-align:center;
+    border-left:6px solid;
+    border-color: #2196F3;
+    background-color: #ddffff;
 }
 .wordcloud {
     max-width: 100%;
