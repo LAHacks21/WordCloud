@@ -39,7 +39,7 @@ def wordc(name="wordcloud_created", topic="covid", user_max=80, color=False):
     else:
         wordcloud.recolor(color_func=None)
 
-    url = path.join(img_path, f"{name}.jpg")
+    url = path.join(img_path, f"{name}{user_max}{color}.jpg")
     wordcloud.to_file(url)
 
     return wordcloud, url

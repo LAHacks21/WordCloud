@@ -16,11 +16,12 @@ def cloud():
             user_max = int(request.args['numWords'])
         except ValueError:
             user_max = 80
+        color = bool(request.args['color'])
         wordc(name=request.args['topic'], 
                 topic=request.args['topic'], 
                 user_max=user_max,
-                color=bool(request.args['color']))
-        return f"img/{request.args['topic']}.jpg"
+                color=color)
+        return f"img/{request.args['topic']}{user_max}{color}.jpg"
 # def root():
 #     return app.send_static_file('wordcloud.html')
 
