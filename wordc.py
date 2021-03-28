@@ -29,7 +29,7 @@ elif (topic == 'sports'):
     user_mask = 'football.jpg'
 elif (topic == 'covid'):
     user_topic = 'covid.txt'
-    user_mask = 'vaccine.png'
+    user_mask = 'heart.png'
 
 #get user's color preference (black/white or color)
 #get user's max words
