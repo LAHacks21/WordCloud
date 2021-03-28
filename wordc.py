@@ -24,13 +24,16 @@ stencils = {'none': None, 'wolf': 'wolfstencil.jpg', 'pig': 'pigstencil.jpg', 'p
 user_topic = 'Gaming.txt' #use dictionary to do this instead
 user_mask = 'wolfstencil.jpg' #use dictionary to do this instead
 user_max = 80
-color_choice = None #or grey_color_func if they choose b/w
+color = False #true for color, false for gray scale
 text = open(path.join(d, user_topic)).read()
 
 cloud_mask = np.array(Image.open(path.join(d, user_mask)))
 wordcloud = WordCloud(mask=cloud_mask, contour_width=3, contour_color='white', max_words=user_max, min_word_length=4).generate(text)
 #wordcloud.to_file(path.join(d, "pigconstitution.png"))
 
-plt.imshow(wordcloud.recolor(color_func=None), interpolation='bilinear')
+if (not color):
+    plt.imshow(wordcloud.recolor(color_func=grey_color_func, random_state=3), interpolation='bilinear')
+else:
+    plt.imshow(wordcloud.recolor(color_func=None), interpolation='bilinear')
 plt.axis("off")
 plt.show()
