@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway" />
 </head>
 <body>
-    <header class="center padding-32">
+    <header class="center padding-header">
         <h1> 
             <b>
                 News Cloud
@@ -48,8 +48,11 @@
             <label for="color">Color</label>
             <input type="checkbox" id="color" value="color" onchange="updateWordCloud()">
         </div>
-        <button onclick="updateWordCloud()">Generate!</button>
+        <div class="setting-item">
+            <button style="font-size: 14px" onclick="updateWordCloud()">Generate!</button>
+        </div>
     </div>
+    <br/>
     <div class="center">
         <img id="wordcloudimg" src="placeholder.jpg" class="wordcloud" alt="Word Cloud Image">
     </div>
