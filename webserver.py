@@ -18,7 +18,7 @@ class S(BaseHTTPRequestHandler):
           self.wfile.write(bytes("<link rel=\"shortcut icon\" href=\"data:image/x-icon;,\" type=\"image/x-icon\">", "utf-8"))
         else:
           if(path == ""):
-            path = "index.html"
+            path = "wordcloud.html"
           if("html" in path):
             log = open(path, "r")
             for line in log:
