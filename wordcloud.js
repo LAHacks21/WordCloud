@@ -7,7 +7,7 @@ function getWordCloudURL(topic, numWords, color) {
     }).then(function (response) {
         console.log(response);
     }).catch(function (error) {
-        console.log(error);
+        console.error(error);
     });
     console.log(topic, numWords, color);
     return url;
@@ -22,7 +22,7 @@ function updateWordCloud() {
     img.src = getWordCloudURL(topic, numWords, color);
     img.alt = "Word Cloud of " + topic;
     var caption = document.getElementById('caption');
-    caption.text = "Wordcloud of " + topic;
+    caption.innerHTML = "Wordcloud of " + topic;
 }
 
 function darkmode() {
