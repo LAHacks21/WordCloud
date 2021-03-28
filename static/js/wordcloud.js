@@ -1,10 +1,14 @@
-function getWordCloudURL(topic, numWords, color) {
-    var url = topic+".jpg";
-    axios.post('localhost:8080', {
-        topic: topic,
-        numWords: numWords,
-        color: color
+function setWordCloudURL(topic, numWords, color) {
+    var url = "img/"+topic+".jpg";
+    axios.get('http://localhost:5000/cloud', {
+        params: {
+            topic: topic,
+            numWords: numWords,
+            color: color
+        }
     }).then(function (response) {
+        var img = document.getElementById('wordcloudimg');
+        img.src = response.data;
         console.log(response);
     }).catch(function (error) {
         console.error(error);
@@ -19,7 +23,7 @@ function updateWordCloud() {
     var numWords = document.getElementById("num-words").value;
     var color = document.getElementById("color").checked;
     var img = document.getElementById('wordcloudimg');
-    img.src = getWordCloudURL(topic, numWords, color);
+    setWordCloudURL(topic, numWords, color);
     img.alt = "Word Cloud of " + topic;
     var caption = document.getElementById('caption');
     caption.innerHTML = "Wordcloud of " + topic;

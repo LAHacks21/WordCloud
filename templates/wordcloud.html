@@ -3,8 +3,9 @@
 <head>
     <title>Word Cloud</title>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-    <script src="wordcloud.js"></script>
-    <link rel="stylesheet" href="wordcloud.css">
+    <script src="{{ url_for('static', filename='js/wordcloud.js')}}"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/wordcloud.css')}}">
+    <!-- <link rel="stylesheet" href="wordcloud.css"> -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway" />
 </head>
 <body>
@@ -26,6 +27,7 @@
                 <option disabled selected value>-- select an option --</option>
                 <option value="omar">omar</option>
                 <option value="ishika">ishika</option>
+                <option value="fashion">fashion</option>
             </select>
         </div>
         <!-- <div class="setting&#45;item"> -->
@@ -54,7 +56,7 @@
     </div>
     <br/>
     <div class="center">
-        <img id="wordcloudimg" src="placeholder.jpg" class="wordcloud" alt="Word Cloud Image">
+        <img id="wordcloudimg" src="{{url_for('static', filename='img/placeholder.jpg')}}" class="wordcloud" alt="Word Cloud Image">
         <h2 id="caption">topic</h2>
     </div>
 </body>
