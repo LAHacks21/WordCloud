@@ -24,7 +24,7 @@ class S(BaseHTTPRequestHandler):
           type = 'image/png'
           self._set_response(type)
           self.wfile.write(bytes("<link rel=\"icon\" type=\"image/png\" href=\"/favicon.ico\" />", "utf-8"))
-        if("html" in path):
+        if("html" in path or ".js" in path or ".css" in path):
           self._set_response(type)
           log = open(path, "r")
           for line in log:
