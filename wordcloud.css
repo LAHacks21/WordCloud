@@ -38,9 +38,10 @@ p {
 }
 
 .settings {
-    /* margin: 0 auto; */
+    margin: 0 auto;
     text-align:center;
     border: 1px solid;
+    max-width: 500px;
     /* border-left:6px solid; */
     /* border-color: #2196F3; */
     /* background-color: #ddffff; */
