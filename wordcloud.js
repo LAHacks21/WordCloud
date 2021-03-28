@@ -1,16 +1,16 @@
-function getWordCloudURL(topic, shape, numWords, color) {
+function getWordCloudURL(topic, numWords, color) {
     var url = topic+".jpg";
-    console.log(topic, shape, numWords, color);
+    console.log(topic, numWords, color);
     return url;
 }
 
 function updateWordCloud() {
     var topic = document.getElementById("topics").value;
-    var shape = document.getElementById("shapes").value;
+    // var shape = document.getElementById("shapes").value;
     var numWords = document.getElementById("num-words").value;
     var color = document.getElementById("color").checked;
     var img = document.getElementById('wordcloudimg');
-    img.src = getWordCloudURL(topic, shape, numWords, color);
+    img.src = getWordCloudURL(topic, numWords, color);
     img.alt = "Word Cloud of " + topic;
 }
 
