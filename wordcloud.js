@@ -1,8 +1,6 @@
-const axios = require('axios').default;
-
 function getWordCloudURL(topic, numWords, color) {
     var url = topic+".jpg";
-    axios.post('/url', {
+    axios.post('url', {
         topic: topic,
         numWords: numWords,
         color: color
