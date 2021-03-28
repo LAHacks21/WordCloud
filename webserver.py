@@ -2,36 +2,34 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import logging
 
 class S(BaseHTTPRequestHandler):
-    def _set_response(self, type):
+    def _set_response(self):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
 
     def do_GET(self):
+        print("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
         logging.info("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
-        
+        self._set_response()
         #self.wfile.write("GET request for {}".format(self.path).encode('utf-8'))
         path = str(self.path)
         path = path[1:]
         print(path)
         
-        type = 'text/html'
         if(path == ""):
           path = "wordcloud.html"
           print("HERE I AM")
         if (path == "favicon.ico"):
           print("FAVICON REQUEST")
           type = 'image/png'
-          self._set_response(type)
+          
           self.wfile.write(bytes("<link rel=\"icon\" type=\"image/png\" href=\"/favicon.ico\" />", "utf-8"))
         if("html" in path or ".js" in path or ".css" in path):
-          self._set_response(type)
           log = open(path, "r")
           for line in log:
             self.wfile.write(bytes(line, "utf-8"))
         elif ("jpg" in path):
           type = 'image/png'
-          self._set_response(type)
           log = open(path, "rb")
           for line in log:
             self.wfile.write(line)
