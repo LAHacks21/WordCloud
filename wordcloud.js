@@ -1,6 +1,6 @@
 function getWordCloudURL(topic, numWords, color) {
     var url = topic+".jpg";
-    axios.post('url', {
+    axios.post('localhost:8080', {
         topic: topic,
         numWords: numWords,
         color: color
