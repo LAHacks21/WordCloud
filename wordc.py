@@ -34,7 +34,11 @@ def wordc(name="wordcloud_created", topic="covid", user_max=80, color=False):
 
     cloud_mask = np.array(Image.open(path.join(img_path, user_mask)))
     wordcloud = WordCloud(mask=cloud_mask, contour_width=3, contour_color='white', max_words=user_max, min_word_length=4).generate(text)
-    wordcloud.recolor(color_func=grey_color_func, random_state=3)
+    if (not color):
+        wordcloud.recolor(color_func=grey_color_func, random_state=3)
+    else:
+        wordcloud.recolor(color_func=None)
+
     url = path.join(img_path, f"{name}.jpg")
     wordcloud.to_file(url)
 
