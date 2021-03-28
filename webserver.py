@@ -2,33 +2,42 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import logging
 
 class S(BaseHTTPRequestHandler):
-    def _set_response(self):
+    def _set_response(self, type):
         self.send_response(200)
         self.send_header('Content-type', 'text/html')
         self.end_headers()
 
     def do_GET(self):
         logging.info("GET request,\nPath: %s\nHeaders:\n%s\n", str(self.path), str(self.headers))
-        self._set_response()
+        
         #self.wfile.write("GET request for {}".format(self.path).encode('utf-8'))
         path = str(self.path)
         path = path[1:]
         print(path)
+        
+        type = 'text/html'
+        if(path == ""):
+          path = "wordcloud.html"
+          print("HERE I AM")
         if (path == "favicon.ico"):
-          self.wfile.write(bytes("<link rel=\"shortcut icon\" href=\"data:image/x-icon;,\" type=\"image/x-icon\">", "utf-8"))
-        else:
-          if(path == ""):
-            path = "wordcloud.html"
-          if("html" in path):
-            log = open(path, "r")
-            for line in log:
-              self.wfile.write(bytes(line, "utf-8"))
-          elif ("jpg" in path):
-            log = open(path, "rb")
-            for line in log:
-              self.wfile.write(line)
+          print("FAVICON REQUEST")
+          type = 'image/png'
+          self._set_response(type)
+          self.wfile.write(bytes("<link rel=\"icon\" type=\"image/png\" href=\"/favicon.ico\" />", "utf-8"))
+        if("html" in path):
+          self._set_response(type)
+          log = open(path, "r")
+          for line in log:
+            self.wfile.write(bytes(line, "utf-8"))
+        elif ("jpg" in path):
+          type = 'image/png'
+          self._set_response(type)
+          log = open(path, "rb")
+          for line in log:
+            self.wfile.write(line)
 
     def do_POST(self):
+        print("POSTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT")
         content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
         post_data = self.rfile.read(content_length) # <--- Gets the data itself
         logging.info("POST request,\nPath: %s\nHeaders:\n%s\n\nBody:\n%s\n",
