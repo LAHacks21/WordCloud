@@ -16,7 +16,8 @@ def cloud():
             user_max = int(request.args['numWords'])
         except ValueError:
             user_max = 80
-        color = bool(request.args['color'])
+        color = True if request.args['color'] == 'true' else False
+        print(color, not color)
         wordc(name=request.args['topic'], 
                 topic=request.args['topic'], 
                 user_max=user_max,
