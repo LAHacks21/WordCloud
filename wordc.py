@@ -40,7 +40,7 @@ text = open(path.join(d, user_topic)).read()
 
 cloud_mask = np.array(Image.open(path.join(d, user_mask)))
 wordcloud = WordCloud(mask=cloud_mask, contour_width=3, contour_color='white', max_words=user_max, min_word_length=4).generate(text)
-#wordcloud.to_file(path.join(d, "pigconstitution.png"))
+wordcloud.to_file(path.join(d, "wordcloud_created.jpg"))
 
 if (not color):
     plt.imshow(wordcloud.recolor(color_func=grey_color_func, random_state=3), interpolation='bilinear')
