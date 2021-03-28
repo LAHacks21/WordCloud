@@ -13,18 +13,29 @@ def grey_color_func(word, font_size, position, orientation, random_state=None, *
 d = path.dirname(__file__) if "__file__" in locals() else os.getcwd()
 
 #get user's topic choice from frontend
-#get user's image mask choice from frontend
+topic = 'covid'
+
+if (topic == 'politics'):
+    user_topic = 'politics.txt'
+    user_mask = 'wolfstencil.jpg'
+elif (topic == 'gaming'):
+    user_topic = 'Gaming.txt'
+    user_mask = 'controller.png'
+elif (topic == 'fashion'):
+    user_topic = 'Fashion.txt' 
+    user_mask = 'dress.jpg'
+elif (topic == 'sports'):
+    user_topic = 'sports.txt' 
+    user_mask = 'football.jpg'
+elif (topic == 'covid'):
+    user_topic = 'covid.txt'
+    user_mask = 'vaccine.png'
+
 #get user's color preference (black/white or color)
 #get user's max words
-
-#dictionary? 
-topics = {'politics': 'politicsArticles.txt', 'gaming':'Gaming.txt', 'placeholder2':'placeholder2.txt', 'placeholder3':'placeholder3.txt'}
-stencils = {'none': None, 'wolf': 'wolfstencil.jpg', 'pig': 'pigstencil.jpg', 'placeholder1':'placeholder1.jpg'}
-
-user_topic = 'Gaming.txt' #use dictionary to do this instead
-user_mask = 'wolfstencil.jpg' #use dictionary to do this instead
 user_max = 80
 color = False #true for color, false for gray scale
+
 text = open(path.join(d, user_topic)).read()
 
 cloud_mask = np.array(Image.open(path.join(d, user_mask)))
