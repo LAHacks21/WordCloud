@@ -21,6 +21,8 @@ function updateWordCloud() {
     var img = document.getElementById('wordcloudimg');
     img.src = getWordCloudURL(topic, numWords, color);
     img.alt = "Word Cloud of " + topic;
+    var caption = document.getElementById('caption');
+    caption.text = "Wordcloud of " + topic;
 }
 
 function darkmode() {
